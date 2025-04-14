@@ -5,6 +5,8 @@ public class ForecastResponse {
     private String confidenceLevel;
     private double confidenceScore;
     private String modelUsed;
+    private String explanation; // OPENAI Explanation
+public ForecastResponse() {}
 
     public double getPredictedTemp() {
         return predictedTemp;
@@ -36,5 +38,13 @@ public class ForecastResponse {
 
     public void setModelUsed(String modelUsed) {
         this.modelUsed = modelUsed;
+    }
+
+    public String getExplanation() {
+        return explanation;
+    }
+    
+    public void setExplanation(String explanation) {
+        this.explanation = explanation;
     }
 }

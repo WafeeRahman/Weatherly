@@ -1,0 +1,9 @@
+*.gradle
+*.properties
+
+forecast-api/forecast-api/gradlew.bat
+forecast-api/forecast-api/gradlew
+forecast-api/forecast-api/gradle/wrapper/gradle-wrapper.jar
+forecast-api/forecast-api/.gitattributes
+forecast-api/forecast-api/gradle/wrapper/gradle-wrapper.jar
+forecast-api/forecast-api/gradle/wrapper/gradle-wrapper.jar

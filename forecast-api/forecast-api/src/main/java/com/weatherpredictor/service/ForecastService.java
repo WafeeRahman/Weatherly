@@ -3,7 +3,11 @@ package com.weatherpredictor.service;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.weatherpredictor.model.ForecastRequest;
 import com.weatherpredictor.model.ForecastResponse;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import com.weatherpredictor.service.OpenAiTextService;
+
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -12,6 +16,9 @@ import java.util.stream.Collectors;
 
 @Service
 public class ForecastService {
+
+    @Autowired
+    private OpenAiTextService openAiTextService;
 
     public ForecastResponse getForecast(ForecastRequest request) {
         try {
@@ -35,7 +42,16 @@ public class ForecastService {
             process.waitFor();
     
             ObjectMapper mapper = new ObjectMapper();
-            return mapper.readValue(resultJson, ForecastResponse.class);
+            ForecastResponse response =  mapper.readValue(resultJson, ForecastResponse.class);
+
+            String summary = String.format("On %s, the predicted temperature is %.2f°C using the %s model. Confidence level: %s.",
+            request.getDate(), response.getPredictedTemp(), response.getModelUsed(), response.getConfidenceLevel());
+
+            String explanation = openAiTextService.generateExplanation(summary);
+            response.setExplanation(explanation);
+
+            return response;
+
     
         } catch (Exception e) {
             e.printStackTrace();
