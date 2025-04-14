@@ -6,8 +6,8 @@ import com.weatherpredictor.model.ForecastResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.beans.factory.annotation.Autowired;
 import com.weatherpredictor.service.OpenAiTextService;
-
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -44,12 +44,16 @@ public class ForecastService {
             ObjectMapper mapper = new ObjectMapper();
             ForecastResponse response =  mapper.readValue(resultJson, ForecastResponse.class);
 
-            String summary = String.format("On %s, the predicted temperature is %.2f°C using the %s model. Confidence level: %s.",
-            request.getDate(), response.getPredictedTemp(), response.getModelUsed(), response.getConfidenceLevel());
+            // Inside the try block after response is parsed:
+            String summary = String.format("Predicted %.2f°C with %s confidence using %s",
+            response.getPredictedTemp(),
+            response.getConfidenceLevel(),
+            response.getModelUsed());
 
-            String explanation = openAiTextService.generateExplanation(summary);
+            String explanation = openAiTextService.generateExplanation(summary, response.getModelUsed());
+
             response.setExplanation(explanation);
-
+          
             return response;
 
     

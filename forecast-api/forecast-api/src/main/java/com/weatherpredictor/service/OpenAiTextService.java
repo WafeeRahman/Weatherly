@@ -15,29 +15,49 @@ public class OpenAiTextService {
 
     public OpenAiTextService(@Value("${openai.api.key}") String apiKey) {
         this.openAiService = new OpenAiService(apiKey);
+        System.out.println("✅ API KEY from Spring: " + apiKey);
     }
 
-    public String generateExplanation(String forecastSummary) {
+    public String generateExplanation(String forecastSummary, String modelUsed) {
+        // Choose model type label
+        String modelDescription;
+        if (modelUsed.contains("anyday")) {
+            modelDescription = "a seasonal model that predicts for a specific date (1-day forecast)";
+        } else if (modelUsed.contains("7day")) {
+            modelDescription = "a 7-day LSTM model that predicts the average temperature over the next 7 days";
+        } else if (modelUsed.contains("14day")) {
+            modelDescription = "a 14-day LSTM model that predicts the average temperature over the next 14 days";
+        } else if (modelUsed.contains("30day")) {
+            modelDescription = "a 30-day LSTM model that predicts the average temperature over the next 30 days";
+        } else {
+            modelDescription = "an unspecified weather prediction model";
+        }
+    
+        // Prompt for the LLM
         List<ChatMessage> messages = List.of(
             new ChatMessage("system", "You are a helpful assistant that explains weather forecasts."),
             new ChatMessage("user", String.format("""
-                Generate a short weather explanation based on this forecast:
-
+                Provide a weather forecast explanation based on the following summary. Include why this weather is likely,
+                how confident we should be in this forecast, and give a short model evaluation based on the type of model used.
+    
                 Forecast Summary:
                 %s
-
-                Explain why this weather is likely based on seasonality and confidence level.
-            """, forecastSummary))
+    
+                Model Used: %s
+    
+                Be concise (2–4 sentences). Mention if confidence should be low because the model predicts over a longer time range.
+            """, forecastSummary, modelDescription))
         );
-
+    
         ChatCompletionRequest request = ChatCompletionRequest.builder()
             .model("gpt-3.5-turbo")
             .messages(messages)
             .temperature(0.7)
-            .maxTokens(150)
+            .maxTokens(180)
             .build();
-
+    
         return openAiService.createChatCompletion(request)
             .getChoices().get(0).getMessage().getContent().trim();
     }
+    
 }
