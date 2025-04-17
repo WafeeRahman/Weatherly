@@ -7,3 +7,7 @@ forecast-api/forecast-api/gradle/wrapper/gradle-wrapper.jar
 forecast-api/forecast-api/.gitattributes
 forecast-api/forecast-api/gradle/wrapper/gradle-wrapper.jar
 forecast-api/forecast-api/gradle/wrapper/gradle-wrapper.jar
+/forecast-api/forecast-api/node_modules
+forecast-api/forecast-api/package.json
+forecast-api/forecast-api/package-lock.json
+forecast-api/forecast-api/models/model_metrics.json

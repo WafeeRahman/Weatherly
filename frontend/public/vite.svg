@@ -1,0 +1,17 @@
+
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <rect width="64" height="64" rx="12" fill="#0F172A"/>
+  
+  <!-- Sun Core -->
+  <circle cx="32" cy="32" r="10" fill="#62BFED"/>
+
+  <!-- Radiating AI Rings -->
+  <circle cx="32" cy="32" r="16" stroke="#62BFED" stroke-opacity="0.3" stroke-width="2"/>
+  <circle cx="32" cy="32" r="22" stroke="#62BFED" stroke-opacity="0.2" stroke-width="2"/>
+
+  <!-- Spark Swirl (cloud motion feel) -->
+  <path d="M20 30c0-8 12-14 22-7" stroke="#62BFED" stroke-width="2" fill="none" stroke-linecap="round"/>
+
+  <!-- AI Data Pulse Spark -->
+  <circle cx="44" cy="28" r="2" fill="#62BFED"/>
+</svg>

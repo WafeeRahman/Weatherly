@@ -38,14 +38,14 @@ public class OpenAiTextService {
             new ChatMessage("system", "You are a helpful assistant that explains weather forecasts."),
             new ChatMessage("user", String.format("""
                 Provide a weather forecast explanation based on the following summary. Include why this weather is likely,
-                how confident we should be in this forecast, and give a short model evaluation based on the type of model used.
+                how confident we should be in this forecast based on the date and the last row of data made available when training the data model (April 4th 2024), and give a short model evaluation based on the type of model used.
     
                 Forecast Summary:
                 %s
     
                 Model Used: %s
     
-                Be concise (2–4 sentences). Mention if confidence should be low because the model predicts over a longer time range.
+                Be concise (2–4 sentences). Mention if confidence should be low because the model predicts over a longer time range. Start every sentence with The forecast predicts a temperature...
             """, forecastSummary, modelDescription))
         );
     

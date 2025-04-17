@@ -22,6 +22,11 @@ public class ForecastService {
 
     public ForecastResponse getForecast(ForecastRequest request) {
         try {
+
+
+            System.out.println("Received date: " + request.getDate());
+            System.out.println("Received model: " + request.getModel());
+                
             ProcessBuilder pb = new ProcessBuilder(
                 "python", "predict.py",
                 request.getDate(), request.getModel()
