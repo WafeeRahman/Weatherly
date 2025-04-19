@@ -81,6 +81,7 @@ useEffect(() => {
               <h1 className="text-5xl font-extrabold tracking-tight">
                 Weatherly&nbsp;&mdash; Your Machine Learning Meteorologist
               </h1>
+              <p className="text-md text-gray-400">Get Temperature Estimates For Downtown Toronto Weather!</p>
               <p className="text-md text-gray-400">{todayStr}</p>
               <p className="text-lg text-gray-300">
                 Click a card for more details.
