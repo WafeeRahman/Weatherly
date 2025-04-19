@@ -9,8 +9,11 @@ This is a practical project I made to gain experience in a plethora of technolog
 
 ---
 
-## Use Case 1: Get Average Temperature Predictions for the next 7, 14, and 30 days Today (Dashboard Cards)
-![weatherly_demo_1](https://github.com/user-attachments/assets/65c72f2f-c9c8-4108-b400-12b55fe79bad)
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/65c72f2f-c9c8-4108-b400-12b55fe79bad"
+       alt="Weatherly demo"
+       width="800" />
+</p>
 
 
 
