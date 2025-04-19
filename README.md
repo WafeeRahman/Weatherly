@@ -8,9 +8,14 @@ If you've ever lived in Toronto, you know that the weather here is unique, to sa
 This is a practical project I made to gain experience in a plethora of technologies. I learned something new in each core element of this project, and the main purpose of making this project was to put my learning into a practical application. 
 
 ---
-![weatherly_demo_1 (5)](https://github.com/user-attachments/assets/7e4c95b2-68b7-428d-a671-0df79ab7c02f)
 
+## Use Case 1: Get Average Temperature Predictions 7, 14, 30 Days From Today (Dashboard Cards)
 
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/7e4c95b2-68b7-428d-a671-0df79ab7c02f"
+       alt="Weatherly demo"
+       width="800" />
+</p>
 
 
 ## 📊 Creating our Machine Learning Models (Jupyter Notebook)
