@@ -17,6 +17,15 @@ This is a practical project I made to gain experience in a plethora of technolog
        width="800" />
 </p>
 
+## Use Case 2: Get Average Temperature Prediction for a Specific Day or 7, 14, 30 Starting from a Specific Day (Calendar Date Picker) 
+
+<p align="center">
+  <img src="[https://github.com/user-attachments/assets/7e4c95b2-68b7-428d-a671-0df79ab7c02f](https://github.com/user-attachments/assets/86c54219-1494-4740-a19b-43795ae3f1e9)"
+       alt="Weatherly demo use case 2"
+       width="800" />
+</p>
+
+
 
 ## 📊 Creating our Machine Learning Models (Jupyter Notebook)
 
