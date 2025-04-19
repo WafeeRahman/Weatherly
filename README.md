@@ -94,7 +94,6 @@ The backend serves static react frontend files built with vite, tailwind, and ma
 
 ### `/frontend`
 - Built with React + Vite
-- Modern UI inspired by **Persona 3 Reload**
 - Key components:
   - Forecast dashboard with 7/14/30 day cards
   - Custom date picker (via `react-modern-calendar-datepicker`)
